@@ -1,0 +1,34 @@
+__pycache__/
+*.py[cod]
+.venv/
+
+# Local environment, API credentials and private keys
+.env
+.env.*
+.api-key
+.api_key
+api-key.txt
+api_key.txt
+openai_api_key.txt
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Runtime databases and SQLite sidecars
+*.db
+*.db-*
+*.sqlite
+*.sqlite-*
+*.sqlite3
+*.sqlite3-*
+
+# Local test artifacts and virtual machine images
+.pytest_cache/
+.coverage
+htmlcov/
+*.log
+*.vmdk
+*.vmem
+*.vmss
+*.vmx

@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ACP · Principal Control Board</title><link rel="stylesheet" href="/board.css"><script defer src="/board.js"></script></head>
+<body><header><span class="eyebrow">AGENT CONTROL PLANE · LOCAL</span><h1>Principal Control Board</h1><p>你決定方向與權限；ACP 協調、執行與驗證。</p><p id="capability" class="banner">Loading canonical capability…</p><button id="refresh">重新讀取狀態</button><label><input type="checkbox" id="poll" checked> 每 10 秒更新（確認操作時暫停）</label><p id="status" role="status">Connecting…</p></header>
+<main><p id="notice" role="status"></p><section aria-label="Operational counts" id="counts" class="counts"></section>
+<section><h2>Needs Human · 決策收件匣</h2><p>先看需要判斷的事。UNKNOWN 不代表安全停止，也不允許重試。</p><div id="inbox"></div></section>
+<section><h2>新目標 · Natural-language intake</h2><form id="intake"><label>Goal<textarea id="goal" required maxlength="8192" placeholder="採購流程目前還有哪些未確認問題？"></textarea></label><label>Primary project<select id="project"><option value="">由既有 resolver 判斷；不猜測 ambiguous</option></select></label><button>檢視 intake 確認摘要</button></form><div id="resolutions"></div></section>
+<section><h2>Projects</h2><div id="projects" class="grid"></div></section>
+<section><h2>Intake / source / legacy tasks</h2><p>未連結 DAG 的 task 不會被隱藏；其 DONE 也不等於 Plan acceptance。</p><div id="tasks" class="grid"></div></section>
+<section><h2>Plans · DAG / Active / Review / Retry</h2><p>WorkItem ACCEPTED ≠ PlanExecution COMPLETE ≠ Principal Plan acceptance。</p><div id="plans"></div></section>
+<section><h2>Pre-execution proposals</h2><p>下列是規劃提案，不是 write authority。Controller / VM 操作仍使用既有 CLI，不由網頁自動啟動。</p><div id="proposals"></div></section>
+<section><h2>Canonical actions</h2><p>每個操作先顯示 exact object、目前狀態與影響，再確認。未提供的權限或 reconciliation 請依既有 CLI／工單處理。</p><div id="actions"></div></section>
+<section><h2>Provider / Worker readiness</h2><div id="providers"></div></section></main>
+<dialog id="confirm"><h2>Principal confirmation</h2><p>此操作只對摘要中的 exact object 生效。若狀態已改變，ACP 會拒絕套用。</p><pre id="packet"></pre><button id="apply">確認上述 bounded canonical action</button><button id="dismiss">返回，不套用</button></dialog><footer>SQLite is canonical · Local operator attribution, not remote multi-user authentication.</footer></body></html>

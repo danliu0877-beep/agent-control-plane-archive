@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ACP Project Registry Entry",
+  "type": "object",
+  "required": [
+    "project_id",
+    "name",
+    "status",
+    "repo",
+    "default_branch",
+    "context_files",
+    "risk_class",
+    "allowed_agent_modes"
+  ],
+  "properties": {
+    "project_id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "active",
+        "paused",
+        "archived"
+      ]
+    },
+    "repo": {
+      "type": "string"
+    },
+    "default_branch": {
+      "type": "string"
+    },
+    "context_files": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "test_commands": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "risk_class": {
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ]
+    },
+    "allowed_agent_modes": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "read",
+          "plan",
+          "write",
+          "commit",
+          "push",
+          "deploy"
+        ]
+      }
+    },
+    "owner": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    }
+  }
+}
